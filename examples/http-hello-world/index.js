@@ -6,7 +6,7 @@ console.log("Starting the server.");
 // "http" is a built-in library (you don't have to install it)
 // Documentation: https://nodejs.org/api/http.html
 var http = require("http");
-var problem = response.statusCode = 404;
+
 
 // callback function is a function provided as argument
 // to another function
@@ -21,7 +21,8 @@ var server = http.createServer(function (request, response) {
   if (request.url === "/") {
     response.end("Hello World!");
   } else {
-    response.end(problem);
+    var problem = response.statusCode = 404;
+    response.end("Dude this page doesn't work yet!");
   }
 
 });
