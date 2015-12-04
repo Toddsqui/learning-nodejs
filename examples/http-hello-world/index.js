@@ -19,7 +19,9 @@ var server = http.createServer(function (request, response) {
 
   // This will send "Hello World" to the browser (in the response)
   if (request.url === "/") {
+    var i = i + 1;
     response.end("Hello World!");
+    response.end("You have visited the site: " + i " number of times!");
   } else {
     var problem = response.statusCode = 404;
     response.end("Dude this page doesn't work yet!");
