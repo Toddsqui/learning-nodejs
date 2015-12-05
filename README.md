@@ -2,11 +2,7 @@
 Todd is going to learn Node.js with this project.
 
 ## Installing Node.js
-### OSX
 
-```sh
-brew install node.js
-```
+Visit [nodejs.org](https://nodejs.org/en/) and download the release you choose.
 
-### Linux
-Contributions are always welcome!
+[![](http://i.imgur.com/s2nWuuq.png)](https://nodejs.org/en/)
