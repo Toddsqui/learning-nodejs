@@ -7,7 +7,7 @@ console.log("Starting the server.");
 // Documentation: https://nodejs.org/api/http.html
 var http = require("http");
 
-
+var userCount = 0;
 // callback function is a function provided as argument
 // to another function
 var server = http.createServer(function (request, response) {
@@ -18,18 +18,12 @@ var server = http.createServer(function (request, response) {
   console.log("> New request: ", request.url, new Date());
 
   // This will send "Hello World" to the browser (in the response)
-  var userCount = 0;
-  http.createServer(function (request, response){
-    userCount++;
-    response.writeHead(200, ('Content-Type': 'text/plain'));
-    response.write('You have had ' + userCount + 'visits!')
-    response.end();
-  }).listen(9000);
+
 
 
   if (request.url === "/") {
-
-    // response.end("Hello World!");
+    userCount++;
+    response.end("Hello World! You have visited this site " + userCount);
   } else {
     var problem = response.statusCode = 404;
     response.end("Dude this page doesn't work yet!");
