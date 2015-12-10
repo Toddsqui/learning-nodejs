@@ -19,16 +19,17 @@ var server = http.createServer(function (request, response) {
 
   // This will send "Hello World" to the browser (in the response)
 
-
-
   if (request.url === "/") {
     userCount++;
+    // response status code is 200 by default which means "success"
+    // response.statusCode = 200;
     response.end("Hello World! You have visited this site " + userCount);
   } else {
-    var problem = response.statusCode = 404;
+    // set the status code to 404 (Not found)
+    // https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_Error
+    response.statusCode = 404;
     response.end("Dude this page doesn't work yet!");
   }
-
 });
 
 // Listen on port 9000
