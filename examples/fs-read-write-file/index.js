@@ -23,7 +23,7 @@ fs.writeFile("foo.txt", "The magic number is 42", function (err) {
       return console.log("There is an error", err);
     }
     console.log("File Read!");
-    console.log("The content is: " +  fileContent);
+    console.log("The content is: " +  fileContent + userCount);
   });
 // end of reading function
 });

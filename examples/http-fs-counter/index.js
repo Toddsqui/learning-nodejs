@@ -6,8 +6,27 @@ console.log("Starting the server.");
 // "http" is a built-in library (you don't have to install it)
 // Documentation: https://nodejs.org/api/http.html
 var http = require("http");
-
 var userCount = 0;
+var fs = require("fs");
+
+fs.writeFile("counter.txt", "The count is", function(err){
+  if(err){
+    return console.log("Houston, we have a problem!");
+  }
+userCount++;
+console.log("The count is " + userCount);
+console.log("File Written");
+console.log("Reading the file");
+});
+
+fs.readFile("counter.txt", "utf-8", function(err, fileContent){
+  if(err){
+    return console.log("There is an error on this page.");
+  }
+  console.log("File read!");
+  console.log("The content is: " + fileContent);
+});
+
 // callback function is a function provided as argument
 // to another function
 var server = http.createServer(function (request, response) {
