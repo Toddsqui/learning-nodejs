@@ -6,15 +6,16 @@ console.log("Starting the server.");
 // "http" is a built-in library (you don't have to install it)
 // Documentation: https://nodejs.org/api/http.html
 var http = require("http");
-var userCount = 0;
+var userCount = 1000;
 var fs = require("fs");
 
 fs.writeFile("counter.txt", "The count is", function(err){
   if(err){
     return console.log("Houston, we have a problem!");
   }
-userCount++;
-console.log("The count is " + userCount);
+    for(var i = 1; i <= userCount.length; i++){
+        console.log("The count is " + userCount);
+    };
 console.log("File Written");
 console.log("Reading the file");
 });
