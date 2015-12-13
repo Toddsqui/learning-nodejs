@@ -1,10 +1,10 @@
 console.log("Starting the server.");
 
 var http = require("http");
-var myNumbers = "1 \n 2 \n 3";
+var myNumbers = "";
 var numbers = 1000;
 for(var i = 1; i <= numbers; i++){
-  myNumbers.push(numbers + " \n");
+  myNumbers += (i + " \n");
   console.log(myNumbers);
 };
 
