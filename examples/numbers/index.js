@@ -4,7 +4,6 @@ console.log("Starting the server.");
 
 
 //YOU ESTABLISH THE VARIABLES HERE
-var http = require("http");
 var myNumbers = "";
 var numbers = 1000;
 for(var i = 1; i <= numbers; i++){
@@ -20,13 +19,11 @@ var fs = require("fs");
 // ---------------------------------------------------------------------------------------//
 
 
-// THIS LINE OF CODE CREATES THE DUMMY SERVER THAT YOU'RE GOING TO WORK ON
-// DEFENSIVE PROGRAMMING -- YOU CORRECT FOR ERRORS BEFORE YOU RUN THE CODE
-server.listen(9000, function(err) {
-  if (err) {
-    console.error("Cannot start the server.");
-    console.error(err);
-    return;
+
+fs.writeFile("numbers.txt", myNumbers, function(err){
+  if(err){
+    return console.log("Houston, we have a problem!");
   }
-  console.log("Server started on port 9000.");
+  console.log("File Written!");
+  console.log("I hope you are happy now! :) ");
 });
