@@ -1,6 +1,8 @@
 
 
 //----------------------------------------------------------------------------------------//
+// Include the fs module
+var fs = require("fs");
 
 
 //YOU ESTABLISH THE VARIABLES HERE
@@ -9,12 +11,7 @@ var numbers = 1000;
 for(var i = 1; i <= numbers; i++){
   //this line will populate the myNumbers variable
   myNumbers += (i + " \n");
-  //this line will print the myNumbers variable to the terminal
-  console.log(myNumbers);
 };
-
-//
-var fs = require("fs");
 
 // ---------------------------------------------------------------------------------------//
 
