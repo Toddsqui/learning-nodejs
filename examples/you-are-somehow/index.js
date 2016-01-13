@@ -7,8 +7,7 @@ console.log("Starting the server.");
 // Documentation: https://nodejs.org/api/http.html
 var http = require("http");
 
-var userCount = 0;
-var x = (Math.random() * 3) + 1);
+var x = ((Math.random() * 3) + 1);
 var compliments = new Array();
 compliments[0] = "You are so awesome! I love you!";
 compliments[1] = "I can't believe how wonderful you are!";
@@ -26,10 +25,9 @@ var server = http.createServer(function (request, response) {
   // This will send "Hello World" to the browser (in the response)
 
   if (request.url === "/") {
-    userCount++;
     // response status code is 200 by default which means "success"
     // response.statusCode = 200;
-    response.end("You are " + randomItem);
+    response.end(randomItem);
   } else {
     // set the status code to 404 (Not found)
     // https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_Error
