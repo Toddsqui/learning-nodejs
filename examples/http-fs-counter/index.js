@@ -5,27 +5,20 @@ console.log("Starting the server.");
 
 // "http" is a built-in library (you don't have to install it)
 // Documentation: https://nodejs.org/api/http.html
+// Require the dependencies
+// http is required for the http server
 var http = require("http");
-var userCount = 1000;
+// fs is needed to write/read the file
 var fs = require("fs");
 
-fs.writeFile("counter.txt", "The count is", function(err){
-  if(err){
-    return console.log("Houston, we have a problem!");
-  }
-    for(var i = 1; i <= userCount.length; i++){
-        console.log("The count is " + userCount);
-    };
-console.log("File Written");
-console.log("Reading the file");
-});
+// By default, set the user count to 0
+var userCount = 0;
 
+/// Read the counter.txt to get the previous count
 fs.readFile("counter.txt", "utf-8", function(err, fileContent){
-  if(err){
-    return console.log("There is an error on this page.");
-  }
-  console.log("File read!");
-  console.log("The content is: " + fileContent);
+    // Store the number in memeory (defaults to 0)
+    userCount = parseInt(fileContent) || 0;
+    console.log("Read the file and the user count is: " + userCount);
 });
 
 // callback function is a function provided as argument
@@ -41,6 +34,13 @@ var server = http.createServer(function (request, response) {
 
   if (request.url === "/") {
     userCount++;
+    // Update the counter.txt
+    fs.writeFile("counter.txt", userCount.toString(), function(err){
+      if(err){
+        return console.log("Houston, we have a problem!", err);
+      }
+    });
+
     // response status code is 200 by default which means "success"
     // response.statusCode = 200;
     response.end("Hello World! You have visited this site " + userCount);
