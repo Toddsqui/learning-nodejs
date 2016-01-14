@@ -1,6 +1,16 @@
-function sumAsync(firstNum, secNum){
+function sumAsync(firstNum, secNum, sumAsyncCb){
   var total = firstNum + secNum;
   setTimeout(function(){
-      console.log("The result is " + total + "!");
+    sumAsyncCb(total);
   }, 1000);
 }
+
+function resultCb (result) {
+   console.log("Result: " + result); // this should show 8
+}
+debugger
+sumAsync(3, 5, resultCb);
+
+sumAsync(42, -2, function (r) {
+  console.log("42 - 2 = " + r);
+});
