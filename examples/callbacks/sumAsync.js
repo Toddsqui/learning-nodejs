@@ -8,7 +8,7 @@ function sumAsync(firstNum, secNum, sumAsyncCb){
 function resultCb (result) {
    console.log("Result: " + result); // this should show 8
 }
-debugger
+
 sumAsync(3, 5, resultCb);
 
 sumAsync(42, -2, function (r) {
